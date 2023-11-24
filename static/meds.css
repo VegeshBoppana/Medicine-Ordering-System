@@ -1,0 +1,184 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: montserrant;
+}
+
+nav{
+    background: rgb(75, 75, 220);
+    height: 70px;
+    width: 100%;
+}
+
+label.logo{
+    color: white;
+    font-size: 40px;
+    line-height: 70px;
+    padding: 0 30px;
+    font-weight: bold;
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 70px;
+    margin: 0 5px;
+}
+
+nav ul li a{
+    color: white;
+    font-size: 15px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+a.current,a:hover{
+    background: rgb(26, 26, 141);
+    transition: .5s;
+}
+
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 70px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+
+@media (max-width: 750px){
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    nav ul li a{
+        font-size: 16px;;
+    }
+}
+
+@media(max-width: 750px){
+    .checkbtn{
+        display: block;
+    }
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: rgb(14, 14, 33);
+        top: 70px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+    nav ul li {
+        display: block;
+        margin: 100px 0;
+        line-height: 30px;
+    }
+    nav ul li a{
+        font-size: 20px;
+    }
+    a:hover,a.active{
+        background: none;
+        color: #0082e6
+    }
+    #check:checked ~ ul{
+        left: 0;
+
+    }
+}
+
+/* CSS for the search bar */
+.search-container {
+    align-items:end;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.search-container input[type=text] {
+    padding: 20px;
+    font-size: 20px;
+    border: 2px solid rgb(26, 26, 141);
+    border-radius: 20px;
+    outline: none;
+    width: 500px;
+}
+
+.search-container button {
+    padding: 20px 40px;
+    font-size: 20px;
+    background-color: white;
+    color: rgb(26, 26, 141);
+    border: 2px solid  rgb(26, 26, 141);
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.search-container button:hover {
+    border: none;
+    background-color: rgb(26, 26, 141);
+    color: white;
+    transition: .2s;
+}
+
+
+.medicines-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.medicine-box {
+    width: 250px;
+    height: 350px;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.medicine-box img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.buy-button {
+    background-color: rgb(26, 26, 141);
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    border-color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.buy-button:hover{
+    background-color: white;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(26, 26, 141);
+    border-color: rgb(26, 26, 141);
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}

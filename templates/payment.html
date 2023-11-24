@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Payment</title>
+    <link rel="stylesheet" href="static/payment.css" >
+</head>
+<body>
+    <div class="payment-container">
+        <h1>Make Payment</h1>
+
+        <div class="qr-scanner">
+            <img src="static/qrcode.jpg" alt="QR Scanner Image">
+        </div>
+
+        <form action="/home" method="post">
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="upi_id">Enter UPI ID:</label>
+                <input type="text" id="upi_id" name="upi_id" required>
+            </div>
+
+            <button type="submit">Make Payment</button>
+        </form>
+    </div>
+</body>
+</html>

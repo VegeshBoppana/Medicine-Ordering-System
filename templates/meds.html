@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Home</title>
+        <meta name="viewpoint" content="width=device-width", 
+        initial-sacle="1.0">
+        <link rel="stylesheet" href="static/meds.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+           <nav>
+                <input type="checkbox" id="check">
+                <label for="check" class="checkbtn">
+                    <i class='bx bx-menu'></i>
+                </label>
+                <label class="logo">MediOrder</label>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a class="current" href="#">MEDICINES</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+           </nav>
+
+           <form action="/search_home" method="post">{% csrf_token %}
+            <div class="search-container">
+                <input type="text" name="search" placeholder="Search...">
+                <button type="submit"><i class='bx bx-search'></i></button>
+            </div>
+           </form>
+
+
+
+            <div class="medicines-container">
+                {% for medicine in medicines %}
+                <div class="medicine-box">
+                    <img src="{{ medicine.image.url }}" alt="{{ medicine.name }}">
+                    <h2>{{ medicine.name }}</h2>
+                    <p>Price: 
+                        {{ medicine.price }} | Quantity: {{ medicine.quantity }}</p>
+                        <a href="{% url 'payment' %}">
+                            <button class="buy-button">Buy</button>
+                        </a>
+                </div>
+                {% empty %}
+                <p>No medicines found.</p>
+                {% endfor %}
+            </div>
+
+
+    </body>
+</html>
